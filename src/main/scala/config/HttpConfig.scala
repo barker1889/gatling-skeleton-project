@@ -6,5 +6,6 @@ import io.gatling.http.protocol.HttpProtocolBuilder
 
 object HttpConfig {
   val httpProtocol: HttpProtocolBuilder = http
+    // If any request uses a relative URL then assume this to be the base
     .baseURL("https://www.example.com")
 }
