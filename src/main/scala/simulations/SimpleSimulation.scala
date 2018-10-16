@@ -10,7 +10,7 @@ import scala.language.postfixOps
 class SimpleSimulation extends Simulation {
 
   // Create the scenario we will be running
-  private val searchScenario = new SearchForSomethingScenario()
+  private val searchScenario = new SearchAndDetailPage()
 
   before {
     println("starting")
@@ -24,7 +24,7 @@ class SimpleSimulation extends Simulation {
       // Specify the load profile (number of virtual users and rate they are added)
       .inject(
         atOnceUsers(1),
-        constantUsersPerSec(2) during(10 seconds)
+        // constantUsersPerSec(2) during(10 seconds)
       )
       // Specify a globally configured HTTP protocol
       .protocols(HttpConfig.httpProtocol),
