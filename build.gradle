@@ -25,9 +25,11 @@ task gatlingTests(type: JavaExec) {
 
     classpath = sourceSets.main.runtimeClasspath
 
+    def simulation = System.getProperty("simulation")
+
     main = "io.gatling.app.Gatling"
 
-    args = ['-s', 'simulations.SimpleSimulation',
+    args = ['-s', "simulations.${simulation}",
             '-sf', 'simulations/resources',
             '-df', 'simulations/resources',
             '-rf', "${buildDir}/reports/gatling"
